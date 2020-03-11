@@ -1,4 +1,4 @@
-import { publicDecrypt } from "crypto";
+
 
 // where the api calls go
 
@@ -34,11 +34,11 @@ $('#submit').on('click', function() {
 // changes devour attribute to true
 // moves burger to devoured list
 
-$('#devour').on('click', function() {
-  let id = this.attr('#id');
-  $.ajax({
-      url: `api/burger/${id}`,
-      method:
+// $('#devour').on('click', function() {
+//   let id = this.attr('#id');
+//   $.ajax({
+//       url: `api/burger/${id}`,
+//       method:
 
-  }) 
-})
+//   }) 
+// })
