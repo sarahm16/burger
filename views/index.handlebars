@@ -1,16 +1,37 @@
 <h1>Eat Da Burger!</h1>
 
-<img src=''>
+<img src='/assets/burger.jpg'>
 
+{{!-- Burgers that have not been devoured --}}
 
-<ul>
-{{ #each }}
-<li>{{ burger_name }}
-<button attr = 'not-devoured' >Devour it!</button> </li>
-{{ /each }}
-</ul>
+<div class='not-devoured'>
+    <h4>Burgers to be devoured</h4>
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                <li>{{ burger_name }}
+                <button data-id='{{ id }}'>Devour it!</button> </li>
+            {{/unless}}
+        {{/each }}
+    </ul>
+</div>
+
+<div class='devoured-burgers'>
+    <h4>Devoured burgers</h4>
+    <ul>
+        {{#each burgers }}
+            {{#if devoured }}
+                <li>
+                    {{ burger_name }}
+                </li>
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
 
 <form>
     <textarea id='new-burger'></textarea>
-    <button id='submit'></button>
+    <br>
+    <button type ='submit' id='submit-burger'>Submit</button>
+    <p>Enter a burger you would like to eat and click the Submit button!</p>
 </form>

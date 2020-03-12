@@ -2,10 +2,6 @@
 
 // where the api calls go
 
-// when user presses all burgers button
-// api call to '/'
-// sends data to views to display all burgers
-
 
 // user creates burger
 // api call to /api/burgers
@@ -13,9 +9,11 @@
 // devoured = false
 // append to list of burgers on index
 
-$('#submit').on('click', function() {
+$('#submit-burger').on('submit', function() {
+    console.log('we did it')
+    event.preventDefault();
     let newBurger = {
-        burger_name = $('#new-burger').text(),
+        name = $('#new-burger').val().trim(),
         devoured: false
     }
     $.ajax('/api/burgers', {
@@ -34,11 +32,18 @@ $('#submit').on('click', function() {
 // changes devour attribute to true
 // moves burger to devoured list
 
-// $('#devour').on('click', function() {
-//   let id = this.attr('#id');
-//   $.ajax({
-//       url: `api/burger/${id}`,
-//       method:
-
-//   }) 
-// })
+$('#devour').on('click', function() {
+    console.log('we did it woooo')
+  let id = $(this).data('id');
+  let newDevouredState = {
+      devoured: true
+  }
+  $.ajax({
+      url: `api/burgers/${id}`,
+      method: 'PUT',
+      data: newDevouredState
+  }).then(function() {
+        console.log('Changed devoured state to ', newDevouredState);
+        location.reload();
+  })
+})
