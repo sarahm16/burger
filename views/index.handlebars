@@ -1,6 +1,6 @@
 <h1>Eat Da Burger!</h1>
 
-<img src='/assets/burger.jpg'>
+<img src='/assets/images/burger.jpg'>
 
 {{!-- Burgers that have not been devoured --}}
 
@@ -10,7 +10,7 @@
         {{#each burgers}}
             {{#unless devoured}}
                 <li>{{ id }}. {{ burger_name }}
-                <button data-id='{{ id }}'>Devour it!</button> </li>
+                <button id='devour' data-id='{{ id }}'>Devour it!</button> </li>
             {{/unless}}
         {{/each }}
     </ul>
