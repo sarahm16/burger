@@ -15,9 +15,9 @@ const orm = {
             cb(result);
         })
     },
-    updateOne: function(table, objColVals, condition, cb) {
+    updateOne: function(table, whatToUpdate, condition, cb) {
         let queryString = 'UPDATE ?? SET ? WHERE ?';
-        connection.query(queryString, [table, objColVals, condition], function(err, result) {
+        connection.query(queryString, [table, whatToUpdate, condition], function(err, result) {
             if(err) throw err;
             cb(result);
         })
