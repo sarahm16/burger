@@ -13,10 +13,11 @@ $(function() {
         })
     })
     
-    $('#devour').on('click', function() {
+    $('.devour').on('click', function() {
         let id = $(this).data('id');
+        console.log('hello')
         let newDevouredState = {
-          devoured: true
+          devoured: 1
       }
       $.ajax({
           url: `api/burgers/${id}`,
