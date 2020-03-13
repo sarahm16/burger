@@ -14,11 +14,11 @@ router.get('/', function(req, res) {
 })
 
 router.post('/api/burgers', function(req, res) {
-    burger.create([
-        'burger_name'
-    ],[
-        req.body.name
-    ], function(result) {
+    let whatToInsert = {
+        burger_name: req.body.name,
+        devoured: 0
+    }
+    burger.create(whatToInsert, function(result) {
         console.log(result)
         res.json( {id: result.insertId})
     })
@@ -26,9 +26,8 @@ router.post('/api/burgers', function(req, res) {
 
 router.put('/api/burgers/:id', function(req, res) {
     let condition = `id = ${req.params.id}`;
-    burger.update({
-        'devoured': req.body.devoured
-    }, condition, function(result) {
+    burger.update('devoured', 1, condition, function(result) {
+        console.log(result);
         if(result.changedRows == 0) {
             return res.status(404).end();
         }
