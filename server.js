@@ -1,9 +1,7 @@
 //const mysql = require('mysql');
 const express = require('express');
-const { join } = require('path');
 
 let app = express();
-
 let PORT = process.env.PORT || 8080;
 
 // Serve static content for the app from the "public" directory in the application directory.
