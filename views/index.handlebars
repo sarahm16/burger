@@ -6,15 +6,16 @@
 
     <h1>Eat Da Burger!</h1>
 
-    {{!-- Burgers that have not been devoured --}}
+  
 
     <div class='burgers'>
+        {{!-- Burgers that have not been devoured --}}
         <div class='not-devoured'>
             <ul>
                 {{#each burgers}}
                     {{#unless devoured}}
-                        <li>
-                            {{ id }}. {{ burger_name }}
+                        <li> 
+                            <div class='name'>{{ id }}. {{ burger_name }}</div>
                             <button class='devour' data-id='{{ id }}'>Devour it!</button>
                         </li>
                     {{/unless}}
@@ -22,12 +23,13 @@
             </ul>
         </div>
 
+        {{!-- Burgers that have been devoured --}}
         <div class='devoured-burgers'>
             <ul>
                 {{#each burgers }}
                     {{#if devoured }}
                         <li>
-                            {{ id }}. {{ burger_name }}
+                            <div class='name'>{{ id }}. {{ burger_name }}</div>
                         </li>
                     {{/if}}
                 {{/each}}
@@ -35,6 +37,9 @@
         </div>
     </div>
 
+    <div class='clear'></div>
+
+    {{!-- Form to submit new burger --}}
     <div class='create'>
         <form>
             <textarea id='new-burger'></textarea>

@@ -4,10 +4,11 @@ body {
 
 .wrapper {
     margin: 0 auto;
-    width: 60%;
+    width: 75%;
 }
 
 textarea {
+    margin-top: 20px;
     width: 300px;
     height: 100px;
 }
@@ -17,11 +18,17 @@ textarea {
     margin-top: 20px;
 }
 
-li {
+.clear {
+    clear: both;
+}
+
+.name {
     background-color: white;
     padding: 15px;
     margin: 5px;
     text-align: center;
+    float: left;
+    width: 70%;
 }
 
 h1,
@@ -37,12 +44,8 @@ ul {
     list-style-type: none;
 }
 
-.not-devoured {
-    float: left;
-    width: 50%;
-}
-
-.devoured-burgers {
+.not-devoured,
+.devoured-burgers  {
     float: left;
     width: 50%;
 }
@@ -53,8 +56,13 @@ ul {
 
 #submit-burger {
     border-radius: 5px;
-    background-color:  navy;
+    background-color: navy;
     color: white;
     padding: 5px 8px 5px 8px;
     margin-top: 5px;
+}
+
+.devour {
+    float: right;
+    padding: 5px 10px 5px 10px;
 }
