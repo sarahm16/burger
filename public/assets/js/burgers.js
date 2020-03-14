@@ -1,4 +1,7 @@
+
 $(function() {
+
+    //api call to router when user creates new burger
     $('#submit-burger').on('click', function() {
         event.preventDefault();
         let newBurger = {
@@ -13,6 +16,7 @@ $(function() {
         })
     })
     
+    // api call to router when user presses button to devour burger
     $('.devour').on('click', function() {
         let id = $(this).data('id');
         console.log('hello')

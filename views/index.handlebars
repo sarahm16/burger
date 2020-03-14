@@ -1,39 +1,47 @@
-<h1>Eat Da Burger!</h1>
+<div class='wrapper'>
 
-<img src='/assets/images/burger.jpg' alt='burger'>
+    <div class='image'>
+        <img src='/assets/images/burger-clipart-13.png' alt='burger' width='100px'>
+    </div>
 
-{{!-- Burgers that have not been devoured --}}
+    <h1>Eat Da Burger!</h1>
 
-<div class='not-devoured'>
-    <h4>Burgers to be devoured</h4>
-    <ul>
-        {{#each burgers}}
-            {{#unless devoured}}
-                <li>
-                    {{ id }}. {{ burger_name }}
-                    <button class='devour' data-id='{{ id }}'>Devour it!</button>
-                </li>
-            {{/unless}}
-        {{/each }}
-    </ul>
+    {{!-- Burgers that have not been devoured --}}
+
+    <div class='burgers'>
+        <div class='not-devoured'>
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <li>
+                            {{ id }}. {{ burger_name }}
+                            <button class='devour' data-id='{{ id }}'>Devour it!</button>
+                        </li>
+                    {{/unless}}
+                {{/each }}
+            </ul>
+        </div>
+
+        <div class='devoured-burgers'>
+            <ul>
+                {{#each burgers }}
+                    {{#if devoured }}
+                        <li>
+                            {{ id }}. {{ burger_name }}
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class='create'>
+        <form>
+            <textarea id='new-burger'></textarea>
+            <br>
+            <button id='submit-burger'>Submit</button>
+            <p>Enter a burger you would like to eat and click the Submit button!</p>
+        </form>
+    </div>
+
 </div>
-
-<div class='devoured-burgers'>
-    <h4>Devoured burgers</h4>
-    <ul>
-        {{#each burgers }}
-            {{#if devoured }}
-                <li>
-                    {{ id }}. {{ burger_name }}
-                </li>
-            {{/if}}
-        {{/each}}
-    </ul>
-</div>
-
-<form>
-    <textarea id='new-burger'></textarea>
-    <br>
-    <button id='submit-burger'>Submit</button>
-    <p>Enter a burger you would like to eat and click the Submit button!</p>
-</form>
